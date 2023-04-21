@@ -18,6 +18,18 @@ const HomePage = ({handleUser}) => {
         }
         getAll()
     }, [])
+
+    useEffect(() => {
+        async function getProductsByCategory() {
+          if (selectedCategory) {
+            setLoading(true);
+            const products = await getCategory(selectedCategory);
+            setProducts(products);
+            setLoading(false);
+          }
+        }
+        getProductsByCategory();
+      }, [selectedCategory]);
   
     return ( 
         <Grid
