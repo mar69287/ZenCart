@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
+import { FormControl, FormLabel, Input, Button, Text, VStack, Heading, Stack } from "@chakra-ui/react";
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
@@ -28,17 +29,22 @@ export default function LoginForm({ setUser }) {
   }
 
   return (
-    <div>
-      <div className="form-container">
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
-        </form>
-      </div>
-      <p className="error-message">&nbsp;{error}</p>
-    </div>
+    <Stack width={{ base: "100%", md: "50%" }} m="auto">
+      <VStack spacing={4}>
+        <Heading>Login</Heading>
+        <FormControl id="email" isRequired>
+          <FormLabel>Email</FormLabel>
+          <Input type="email" name="email" value={credentials.email} onChange={handleChange} required />
+        </FormControl>
+        <FormControl id="password" isRequired>
+          <FormLabel>Password</FormLabel>
+          <Input type="password" name="password" value={credentials.password} onChange={handleChange} required />
+        </FormControl>
+        <Button colorScheme="blue" type="submit" onClick={handleSubmit}>
+          Continue
+        </Button>
+        {error && <Text color="red.500">{error}</Text>}
+      </VStack>
+    </Stack>
   );
 }

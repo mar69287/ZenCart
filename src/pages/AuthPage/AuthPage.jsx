@@ -1,7 +1,7 @@
 import SignUpForm from '../../components/SignUpForm/SignUpForm'
 import LoginForm from '../../components/LoginForm/LoginForm'
 import { useState } from 'react';
-import { Box, Button, Flex, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, HStack, Text } from '@chakra-ui/react';
 
 export default function AuthPage({ setUser }) {
     const [showLogin, setShowLogin] = useState(true);
@@ -16,19 +16,23 @@ export default function AuthPage({ setUser }) {
                 width="100%"
             >
                 {showLogin ? <LoginForm setUser={setUser} /> : <SignUpForm setUser={setUser} />}
-                <Box mt={4}>
+                <HStack>
                 {showLogin ? (
-                    <Text>
-                    New to Fresh Finds?{' '}
-                    <Button size="sm" onClick={() => setShowLogin(false)}>Create your account</Button>
-                    </Text>
+                    <HStack>
+                        <Text >
+                        New to Fresh Finds?{' '}
+                        </Text>
+                        <Button size="sm" onClick={() => setShowLogin(false)}>Create your account</Button>
+                    </HStack>
                 ) : (
-                    <Text>
-                    Already have an account?{' '}
-                    <Button size="sm" onClick={() => setShowLogin(true)}>Log in</Button>
-                    </Text>
+                    <HStack>
+                        <Text>
+                        Already have an account?{' '}
+                        <Button size="sm" onClick={() => setShowLogin(true)}>Log in</Button>
+                        </Text>
+                    </HStack>
                 )}
-                </Box>
+                </HStack>
             </Flex>
         </Box>
     )
