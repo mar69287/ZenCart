@@ -18,18 +18,18 @@ export default function AuthPage({ setUser }) {
                 {showLogin ? <LoginForm setUser={setUser} /> : <SignUpForm setUser={setUser} />}
                 <HStack>
                 {showLogin ? (
-                    <HStack>
+                    <HStack paddingTop={4}>
                         <Text >
                         New to Fresh Finds?{' '}
                         </Text>
-                        <Button size="sm" onClick={() => setShowLogin(false)}>Create your account</Button>
+                        <Text as={'b'}  cursor={'pointer'} onClick={() => setShowLogin(false)}>Create your account</Text>
                     </HStack>
                 ) : (
                     <HStack>
                         <Text>
                         Already have an account?{' '}
-                        <Button size="sm" onClick={() => setShowLogin(true)}>Log in</Button>
                         </Text>
+                        <Text as={'b'} cursor={'pointer'} onClick={() => setShowLogin(true)}>Log in</Text>
                     </HStack>
                 )}
                 </HStack>
