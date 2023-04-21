@@ -6,6 +6,8 @@ import {  BsFillCartFill } from 'react-icons/bs';
 import {  GiHamburgerMenu } from 'react-icons/gi';
 import SideDrawer from "../../components/SideDrawer";
 import ReactStars from "react-rating-stars-component";
+import Logo from "../../components/Logo";
+import { Link } from "react-router-dom";
 
 const ProductPage = ({ isDrawerOpen, setIsDrawerOpen, handleUser }) => {
     const { productId } = useParams();
@@ -34,13 +36,11 @@ const ProductPage = ({ isDrawerOpen, setIsDrawerOpen, handleUser }) => {
             <Grid
               templateRows="1fr 1fr 1fr"
               templateColumns="1fr 1fr"
-              gap={4}
-              p={4}
               height="100vh"
             >
               <GridItem colSpan={2}>
-                <HStack justifyContent={"space-between"} padding={'10px'} w="100%">
-                  <Text fontSize={'2xl'} fontFamily={'monospace'}>ZenCart</Text>
+                <HStack justifyContent={"space-between"} padding={'10px'}>
+                  <Logo />
                   <HStack spacing={4}>
                       <Box _hover={{ cursor: 'pointer', color: 'gray.500', transition: 'color 0.2s ease-in-out' }}>
                           <BsFillCartFill size={30} />
@@ -50,10 +50,10 @@ const ProductPage = ({ isDrawerOpen, setIsDrawerOpen, handleUser }) => {
                       </Box>
                   </HStack>
                   <SideDrawer 
-                isOpen={isDrawerOpen}
-                onClose={() => setIsDrawerOpen(false)}
-                handleUser={handleUser}
-            />
+                    isOpen={isDrawerOpen}
+                    onClose={() => setIsDrawerOpen(false)}
+                    handleUser={handleUser}
+                  />
                 </HStack>
               </GridItem>
               <GridItem colSpan={2}>
