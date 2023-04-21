@@ -5,7 +5,7 @@ import CategoryList from "../components/CategoryList";
 import ProductGrid from "../components/ProductGrid";
 import { getProducts, getCategory, searchProducts } from "../utilities/products-api";
 
-const HomePage = ({handleUser}) => {
+const HomePage = ({ isDrawerOpen, setIsDrawerOpen, handleUser}) => {
     const [products, setProducts] = useState([])
     const [isLoading, setLoading] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState("");
@@ -25,11 +25,24 @@ const HomePage = ({handleUser}) => {
             setLoading(true);
             const products = await getCategory(selectedCategory);
             setProducts(products);
+            setSearchText('')
             setLoading(false);
           }
         }
         getProductsByCategory();
       }, [selectedCategory]);
+
+      useEffect(() => {
+        async function search() {
+          setLoading(true);
+          if (searchText !== "") {
+            const products = await searchProducts(searchText);
+            setProducts(products);
+          }
+          setLoading(false);
+        }
+        search();
+      }, [searchText]);
   
     return ( 
         <Grid
@@ -43,7 +56,7 @@ const HomePage = ({handleUser}) => {
           }}
         >
           <GridItem area="nav">
-            <NavBar handleUser={handleUser}/>
+            <NavBar isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleUser} setSearchText={setSearchText}/>
           </GridItem>
             <GridItem area="aside">
                 <CategoryList selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>

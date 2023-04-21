@@ -5,13 +5,12 @@ import {  GiHamburgerMenu } from 'react-icons/gi';
 import { useState } from 'react';
 import SideDrawer from "../SideDrawer";
 
-export default function NavBar({handleUser }) {
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+export default function NavBar({ isDrawerOpen, setIsDrawerOpen, handleUser, setSearchText }) {
 
     return (
         <HStack padding="10px">
             <Text fontSize={'2xl'} fontFamily={'monospace'}>ZenCart</Text>
-            <SearchInput />
+            <SearchInput setSearchText={setSearchText}/>
             <HStack spacing={4}>
                 <Box _hover={{ cursor: 'pointer', color: 'gray.500', transition: 'color 0.2s ease-in-out' }}>
                     <BsFillCartFill size={30} />

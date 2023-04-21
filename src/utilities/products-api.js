@@ -10,6 +10,7 @@ export async function getCategory(category) {
 }
 
 export async function searchProducts(searchText) {
+    console.log(searchText)
     return sendRequest(`${BASE_URL}/search/${searchText}`)
 }
 
