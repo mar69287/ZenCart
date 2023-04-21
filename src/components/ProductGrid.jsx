@@ -1,5 +1,7 @@
 import { SimpleGrid } from "@chakra-ui/react";
 import ProductContainer from "./ProductContainer";
+import ProductCard from "./ProductCard";
+import { Link } from "react-router-dom";
 
 const ProductGrid = ({products}) => {
 
@@ -9,9 +11,13 @@ const ProductGrid = ({products}) => {
             padding="10px"
             spacing={6}
         >
-            <ProductContainer>
-                
-            </ProductContainer>
+            {products.map(product => (
+                <Link key={product.id} to={`/products/${product.id}`}>
+                    <ProductContainer >
+                        <ProductCard product={product}/>
+                    </ProductContainer>
+                </Link>
+            ))}
         </SimpleGrid>  
     )
 }

@@ -19,7 +19,7 @@ const CategoryList = ({selectedCategory, setSelectedCategory}) => {
           </Button>
        ))}
       </Show>
-      <Show below='md'>
+      <Show below='sm'>
       <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
         {selectedCategory || "Categories"}

@@ -3,7 +3,7 @@ import ReactStars from "react-rating-stars-component";
 
 const ProductCard = ({product}) => {
   return (
-    <Card paddingTop={3} height={'21rem'}>
+    <Card paddingTop={3} minH={'21rem'}>
         <Flex justify={'center'}>
         <Image src={product.image}  boxSize="200px" />
         </Flex>

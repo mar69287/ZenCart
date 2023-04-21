@@ -3,13 +3,21 @@ import NavBar from "../components/NavBar/NavBar";
 import { useEffect, useState } from "react";
 import CategoryList from "../components/CategoryList";
 import ProductGrid from "../components/ProductGrid";
+import { getProducts, getCategory, searchProducts } from "../utilities/products-api";
 
-const HomePage = () => {
+const HomePage = ({handleUser}) => {
     const [products, setProducts] = useState([])
     const [isLoading, setLoading] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState("");
     const [searchText, setSearchText] = useState("");
 
+    useEffect(() => {
+        async function getAll() {
+            const products = await getProducts()
+            setProducts(products)
+        }
+        getAll()
+    }, [])
   
     return ( 
         <Grid
@@ -23,7 +31,7 @@ const HomePage = () => {
           }}
         >
           <GridItem area="nav">
-            <NavBar/>
+            <NavBar handleUser={handleUser}/>
           </GridItem>
             <GridItem area="aside">
                 <CategoryList selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
