@@ -1,7 +1,7 @@
 import SignUpForm from '../../components/SignUpForm/SignUpForm'
 import LoginForm from '../../components/LoginForm/LoginForm'
 import { useState } from 'react';
-import { Box, Button, Flex, HStack, Text } from '@chakra-ui/react';
+import { Box, Flex, HStack, Text } from '@chakra-ui/react';
 
 export default function AuthPage({ setUser }) {
     const [showLogin, setShowLogin] = useState(true);

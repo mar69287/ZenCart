@@ -2,7 +2,7 @@ import { Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, 
 import ColorModeSwitch from "./ColorModeSwitch";
 import { Link } from "react-router-dom";
 
-const SideDrawer = ({ isOpen, onClose, handleLogOut }) => {
+const SideDrawer = ({ isOpen, onClose, handleUser,}) => {
   return (
     <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
       <DrawerOverlay />
@@ -13,7 +13,7 @@ const SideDrawer = ({ isOpen, onClose, handleLogOut }) => {
           <Stack spacing={'20px'}>
             <ColorModeSwitch />
             <Box _hover={{ cursor: 'pointer', color: 'gray.500', transition: 'color 0.2s ease-in-out' }}>
-              <Link to="" onClick={handleLogOut}>Log Out</Link>
+              <Link to="" onClick={handleUser}>Log Out</Link>
             </Box>
           </Stack>
         </DrawerBody>

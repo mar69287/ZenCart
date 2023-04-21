@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom'
-import * as userService from '../../utilities/users-service' 
 import { HStack, Text, Box } from "@chakra-ui/react";
 import SearchInput from "../SearchInput";
 import {  BsFillCartFill } from 'react-icons/bs';
@@ -7,13 +5,13 @@ import {  GiHamburgerMenu } from 'react-icons/gi';
 import { useState } from 'react';
 import SideDrawer from "../SideDrawer";
 
-export default function NavBar({ user, setUser }) {
+export default function NavBar({handleUser }) {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-    function handleLogOut() {
-        userService.logOut()
-        setUser(null)
-    }
+    // function handleLogOut() {
+    //     userService.logOut()
+    //     setUser(null)
+    // }
 
     return (
         <HStack padding="10px">
@@ -27,14 +25,12 @@ export default function NavBar({ user, setUser }) {
                     <GiHamburgerMenu size={30} onClick={() => setIsDrawerOpen(true)} />
                 </Box>
             </HStack>
-            <SideDrawer
+            <SideDrawer 
                 isOpen={isDrawerOpen}
                 onClose={() => setIsDrawerOpen(false)}
-                handleLogOut={handleLogOut}
+                handleUser={handleUser}
             />
         </HStack>
         
     )
 }
-
-{/* <Link to="" onClick={handleLogOut}>Log Out</Link> */}
