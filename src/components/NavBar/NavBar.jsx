@@ -8,11 +8,6 @@ import SideDrawer from "../SideDrawer";
 export default function NavBar({handleUser }) {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-    // function handleLogOut() {
-    //     userService.logOut()
-    //     setUser(null)
-    // }
-
     return (
         <HStack padding="10px">
             <Text fontSize={'2xl'} fontFamily={'monospace'}>ZenCart</Text>
