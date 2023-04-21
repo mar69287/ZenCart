@@ -2,12 +2,10 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import { getProduct } from "../../utilities/products-api";
 import { Grid, GridItem, Text, Image, HStack, Heading, Box, Button } from "@chakra-ui/react";
-import {  BsFillCartFill } from 'react-icons/bs';
-import {  GiHamburgerMenu } from 'react-icons/gi';
 import SideDrawer from "../../components/SideDrawer";
 import ReactStars from "react-rating-stars-component";
 import Logo from "../../components/Logo";
-import { Link } from "react-router-dom";
+import RightSideNav from "../../components/RightSideNav";
 
 const ProductPage = ({ isDrawerOpen, setIsDrawerOpen, handleUser }) => {
     const { productId } = useParams();
@@ -41,14 +39,7 @@ const ProductPage = ({ isDrawerOpen, setIsDrawerOpen, handleUser }) => {
               <GridItem colSpan={2}>
                 <HStack justifyContent={"space-between"} padding={'10px'}>
                   <Logo />
-                  <HStack spacing={4}>
-                      <Box _hover={{ cursor: 'pointer', color: 'gray.500', transition: 'color 0.2s ease-in-out' }}>
-                          <BsFillCartFill size={30} />
-                      </Box>
-                      <Box _hover={{ cursor: 'pointer', color: 'gray.500', transition: 'color 0.2s ease-in-out' }}>
-                          <GiHamburgerMenu size={30} onClick={() => setIsDrawerOpen(true)} />
-                      </Box>
-                  </HStack>
+                  <RightSideNav setIsDrawerOpen={setIsDrawerOpen} />
                   <SideDrawer 
                     isOpen={isDrawerOpen}
                     onClose={() => setIsDrawerOpen(false)}
