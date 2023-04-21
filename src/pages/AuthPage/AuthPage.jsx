@@ -22,14 +22,14 @@ export default function AuthPage({ setUser }) {
                         <Text >
                         New to Fresh Finds?{' '}
                         </Text>
-                        <Text as={'b'}  cursor={'pointer'} onClick={() => setShowLogin(false)}>Create your account</Text>
+                        <Text as={'b'} _hover={{ color: "blue.500" }} cursor={'pointer'} onClick={() => setShowLogin(false)}>Create your account</Text>
                     </HStack>
                 ) : (
                     <HStack>
                         <Text>
                         Already have an account?{' '}
                         </Text>
-                        <Text as={'b'} cursor={'pointer'} onClick={() => setShowLogin(true)}>Log in</Text>
+                        <Text as={'b'} _hover={{ color: "blue.500" }} cursor={'pointer'} onClick={() => setShowLogin(true)}>Log in</Text>
                     </HStack>
                 )}
                 </HStack>
