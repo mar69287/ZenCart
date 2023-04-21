@@ -2,6 +2,7 @@ import { Grid, GridItem } from "@chakra-ui/react";
 import NavBar from "../components/NavBar/NavBar";
 import { useEffect, useState } from "react";
 import CategoryList from "../components/CategoryList";
+import ProductGrid from "../components/ProductGrid";
 
 const HomePage = () => {
     const [products, setProducts] = useState([])
@@ -28,6 +29,7 @@ const HomePage = () => {
                 <CategoryList selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
             </GridItem>
           <GridItem area="main">
+            <ProductGrid products={products}/>
           </GridItem>
         </Grid>
   )
