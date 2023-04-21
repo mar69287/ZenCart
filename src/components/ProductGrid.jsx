@@ -1,4 +1,5 @@
 import { SimpleGrid } from "@chakra-ui/react";
+import ProductContainer from "./ProductContainer";
 
 const ProductGrid = ({products}) => {
 
@@ -8,7 +9,9 @@ const ProductGrid = ({products}) => {
             padding="10px"
             spacing={6}
         >
-            
+            <ProductContainer>
+                
+            </ProductContainer>
         </SimpleGrid>  
     )
 }
