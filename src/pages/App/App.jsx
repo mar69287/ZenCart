@@ -6,10 +6,12 @@ import AuthPage from '../AuthPage/AuthPage';
 import * as userService from '../../utilities/users-service' 
 import ProductPage from '../ProductPage/ProductPage';
 import HomePage from '../HomePage';
+import CartPage from '../CartPage';
 
 export default function App() {
   const [ user, setUser ] = useState(getUser())
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [cart, setCart] = useState([]);
 
   function handleLogOut() {
     userService.logOut()
@@ -24,7 +26,8 @@ export default function App() {
         <>
           <Routes>
             <Route path='/products' element={<HomePage isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut}/>}/>  
-            <Route path="/products/:productId" element={<ProductPage isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut}/>} /> 
+            <Route path="/products/:productId" element={<ProductPage setCart={setCart} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut}/>} /> 
+            <Route path='/cart' element={<CartPage cart={cart} setCart={setCart} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut}/>}/>
             <Route path="/*" element={<Navigate to="/products" />} />
           </Routes>
         </>

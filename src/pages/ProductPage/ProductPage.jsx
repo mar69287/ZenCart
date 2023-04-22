@@ -8,7 +8,7 @@ import Logo from "../../components/Logo";
 import RightSideNav from "../../components/RightSideNav";
 import { useMediaQuery } from '@chakra-ui/react';
 
-const ProductPage = ({ isDrawerOpen, setIsDrawerOpen, handleUser }) => {
+const ProductPage = ({ setCart, isDrawerOpen, setIsDrawerOpen, handleUser }) => {
     const { productId } = useParams();
     const [product, setProduct] = useState(null);
     const [showRatingsCount, setShowRatingsCount] = useState(false);
@@ -33,6 +33,17 @@ const ProductPage = ({ isDrawerOpen, setIsDrawerOpen, handleUser }) => {
         }, 5000);
         return () => clearInterval(interval);
     }, []);
+
+    const addToCart = () => {
+      const cartItem = {
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        quantity: 1,
+      };
+      console.log(cartItem)
+      setCart((prevCart) => [...prevCart, cartItem]);
+    };
 
     return (
         <>
@@ -89,7 +100,7 @@ const ProductPage = ({ isDrawerOpen, setIsDrawerOpen, handleUser }) => {
                                 </Text>
                               </Box>
                             </Show>
-                            <Button colorScheme="blue" size={size}>
+                            <Button colorScheme="blue" size={size} onClick={addToCart}>
                               Add to Cart
                             </Button>
                           </HStack>
