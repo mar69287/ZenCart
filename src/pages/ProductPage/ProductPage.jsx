@@ -1,12 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import { getProduct } from "../../utilities/products-api";
-import { Grid, GridItem, Text, Image, HStack, Heading, Box, Button, Stack, Center, useBreakpointValue, Show } from "@chakra-ui/react";
-import SideDrawer from "../../components/SideDrawer";
+import { Grid, GridItem, Text, Image, HStack, Heading, Box, Button, Stack, Center, useBreakpointValue, Show, useToast } from "@chakra-ui/react";
 import ReactStars from "react-rating-stars-component";
-import Logo from "../../components/Logo";
-import RightSideNav from "../../components/RightSideNav";
 import { useMediaQuery } from '@chakra-ui/react';
+import MiniNav from "../../components/MiniNav";
 
 const ProductPage = ({ setCart, isDrawerOpen, setIsDrawerOpen, handleUser }) => {
     const { productId } = useParams();
@@ -16,6 +14,7 @@ const ProductPage = ({ setCart, isDrawerOpen, setIsDrawerOpen, handleUser }) => 
     const size = useBreakpointValue({ base: 'sm', md: 'lg' });
     const imageSize = useBreakpointValue({ base: "250px", sm: "350px" });
     const [isSmallerScreen] = useMediaQuery("(max-width: 600px)");
+    const toast = useToast();
 
 
     useEffect(() => {
@@ -41,8 +40,13 @@ const ProductPage = ({ setCart, isDrawerOpen, setIsDrawerOpen, handleUser }) => 
         price: product.price,
         quantity: 1,
       };
-      console.log(cartItem)
       setCart((prevCart) => [...prevCart, cartItem]);
+      toast({
+        title: "Product added to cart",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
     };
 
     return (
@@ -54,15 +58,7 @@ const ProductPage = ({ setCart, isDrawerOpen, setIsDrawerOpen, handleUser }) => 
               height="100vh"
               >
                 <GridItem colSpan={2}>
-                    <HStack justifyContent={"space-between"} padding={'10px'}>
-                      <Logo />
-                      <RightSideNav setIsDrawerOpen={setIsDrawerOpen} />
-                      <SideDrawer 
-                        isOpen={isDrawerOpen}
-                        onClose={() => setIsDrawerOpen(false)}
-                        handleUser={handleUser}
-                      />
-                    </HStack>
+                  <MiniNav isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleUser} />
                 </GridItem>
                 <GridItem colSpan={2} justifySelf="center" alignSelf="center">
                   <Heading paddingBottom={6}>{product.title}</Heading>

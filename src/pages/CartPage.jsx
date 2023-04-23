@@ -1,14 +1,13 @@
 import { useNumberInput, HStack, Button, Input } from "@chakra-ui/react";
 import Logo from "../components/Logo";
-import RightSideNav from "../components/RightSideNav";
-import SideDrawer from "../components/SideDrawer";
+import MiniNav from "../components/MiniNav";
 
 const CartPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser }) => {
     return (
-        <div>cart page</div>
+        <MiniNav isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleUser} />
       )
 };
   
-  export default CartPage;
+export default CartPage;
   
 
