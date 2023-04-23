@@ -1,11 +1,33 @@
 import CartItemCard from "../components/CartItemCard";
 import MiniNav from "../components/MiniNav";
-import { HStack, VStack, Button, Text, Spacer } from "@chakra-ui/react";
+import { HStack, VStack, Button, Text, Spacer, useToast } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { createOrder } from "../utilities/orders-api";
 
 const CartPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser }) => {
     const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    console.log(cart)
+     const toast = useToast();
+
+    const handlePurchase = async () => {
+    try {
+      await createOrder(cart, total);
+      setCart([]);
+      toast({
+        title: "Purchase successful",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+    } catch (error) {
+      console.log(error);
+      toast({
+        title: "Error processing purchase",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
+  };
 
     return (
         <>
@@ -25,7 +47,7 @@ const CartPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser }) 
                         Continue Shopping
                         </Button>
                     </Link>
-                    <Button colorScheme="blue" size="md">
+                    <Button colorScheme="blue" size="md" onClick={handlePurchase}>
                         Purchase
                     </Button>
                 </HStack>
