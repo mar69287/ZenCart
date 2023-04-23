@@ -1,4 +1,4 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, Box } from "@chakra-ui/react";
 import NavBar from "../components/NavBar/NavBar";
 import { useEffect, useState } from "react";
 import CategoryList from "../components/CategoryList";
@@ -44,6 +44,11 @@ const HomePage = ({ isDrawerOpen, setIsDrawerOpen, handleUser}) => {
         search();
       }, [searchText]);
   
+      const handleLogoClick = async () => {
+        const products = await getProducts();
+        setProducts(products);
+      };
+
     return ( 
         <Grid
           templateAreas={{
@@ -56,7 +61,9 @@ const HomePage = ({ isDrawerOpen, setIsDrawerOpen, handleUser}) => {
           }}
         >
           <GridItem area="nav">
-            <NavBar isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleUser} setSearchText={setSearchText}/>
+            <Box onClick={handleLogoClick}>
+              <NavBar isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleUser} setSearchText={setSearchText}/>
+            </Box>
           </GridItem>
             <GridItem area="aside">
                 <CategoryList selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>

@@ -1,7 +1,8 @@
 import MiniNav from "../components/MiniNav";
 import { getOrders } from "../utilities/orders-api";
 import { useEffect, useState } from "react";
-import { VStack, HStack, Text, Button, Spacer, Link, Spinner } from "@chakra-ui/react";
+import { VStack, HStack, Text, Button, Spacer, Spinner } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const OrderHistoryPage = ({ isDrawerOpen, setIsDrawerOpen, handleUser }) => {
   const [orders, setOrders] = useState([]);
