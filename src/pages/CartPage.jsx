@@ -31,44 +31,44 @@ const CartPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser }) 
 
     return (
         <>
-             <MiniNav isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleUser} />
-      {cart.length > 0 ? (
-        <>
-          {cart.map((item) => {
-            return <CartItemCard key={item.id} item={item} cart={cart} setCart={setCart} />;
-          })}
-          <VStack marginY={10}>
-            <HStack w="100%">
-              <Spacer />
+          <MiniNav isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleUser} />
+          {cart.length > 0 ? (
+            <>
+              {cart.map((item) => {
+                return <CartItemCard key={item.id} item={item} cart={cart} setCart={setCart} />;
+              })}
+              <VStack marginY={10}>
+                <HStack w="100%">
+                  <Spacer />
+                  <Text fontSize="lg" fontWeight="bold" mb={2}>
+                    Total: ${total.toFixed(2)}
+                  </Text>
+                </HStack>
+                <HStack w="100%" paddingBottom={"4"}>
+                  <Spacer />
+                  <Link to="/products">
+                    <Button colorScheme="gray" size="md">
+                      Continue Shopping
+                    </Button>
+                  </Link>
+                  <Button colorScheme="blue" size="md" onClick={handlePurchase}>
+                    Purchase
+                  </Button>
+                </HStack>
+              </VStack>
+            </>
+          ) : (
+            <VStack marginY={10}>
               <Text fontSize="lg" fontWeight="bold" mb={2}>
-                Total: ${total.toFixed(2)}
+                Cart is empty
               </Text>
-            </HStack>
-            <HStack w="100%" paddingBottom={"4"}>
-              <Spacer />
               <Link to="/products">
                 <Button colorScheme="gray" size="md">
                   Continue Shopping
                 </Button>
               </Link>
-              <Button colorScheme="blue" size="md" onClick={handlePurchase}>
-                Purchase
-              </Button>
-            </HStack>
-          </VStack>
-        </>
-      ) : (
-        <VStack marginY={10}>
-          <Text fontSize="lg" fontWeight="bold" mb={2}>
-            Cart is empty
-          </Text>
-          <Link to="/products">
-            <Button colorScheme="gray" size="md">
-              Continue Shopping
-            </Button>
-          </Link>
-        </VStack>
-      )}
+            </VStack>
+          )}
         </>
       )
 };

@@ -7,6 +7,7 @@ import * as userService from '../../utilities/users-service'
 import ProductPage from '../ProductPage/ProductPage';
 import HomePage from '../HomePage';
 import CartPage from '../CartPage';
+import OrderHistoryPage from '../OrderHistoryPage';
 
 export default function App() {
   const [ user, setUser ] = useState(getUser())
@@ -28,6 +29,7 @@ export default function App() {
             <Route path='/products' element={<HomePage cart={cart} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut}/>}/>  
             <Route path="/products/:productId" element={<ProductPage cart={cart} setCart={setCart} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut}/>} /> 
             <Route path='/cart' element={<CartPage cart={cart} setCart={setCart} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut}/>}/>
+            <Route path='/orders' element={<OrderHistoryPage  isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut}/>}/>
             <Route path="/*" element={<Navigate to="/products" />} />
           </Routes>
         </>
