@@ -38,6 +38,7 @@ const ProductPage = ({ setCart, isDrawerOpen, setIsDrawerOpen, handleUser }) => 
         id: product.id,
         title: product.title,
         price: product.price,
+        image: product.image,
         quantity: 1,
       };
       setCart((prevCart) => [...prevCart, cartItem]);
