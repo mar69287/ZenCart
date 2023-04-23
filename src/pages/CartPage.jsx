@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const CartPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser }) => {
     const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    console.log(cart)
 
     return (
         <>

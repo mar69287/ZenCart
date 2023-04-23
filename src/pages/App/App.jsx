@@ -25,8 +25,8 @@ export default function App() {
         user ?
         <>
           <Routes>
-            <Route path='/products' element={<HomePage isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut}/>}/>  
-            <Route path="/products/:productId" element={<ProductPage setCart={setCart} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut}/>} /> 
+            <Route path='/products' element={<HomePage cart={cart} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut}/>}/>  
+            <Route path="/products/:productId" element={<ProductPage cart={cart} setCart={setCart} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut}/>} /> 
             <Route path='/cart' element={<CartPage cart={cart} setCart={setCart} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut}/>}/>
             <Route path="/*" element={<Navigate to="/products" />} />
           </Routes>

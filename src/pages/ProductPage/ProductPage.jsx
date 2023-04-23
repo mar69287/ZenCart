@@ -5,8 +5,9 @@ import { Grid, GridItem, Text, Image, HStack, Heading, Box, Button, Stack, Cente
 import ReactStars from "react-rating-stars-component";
 import { useMediaQuery } from '@chakra-ui/react';
 import MiniNav from "../../components/MiniNav";
+import CartPage from "../CartPage";
 
-const ProductPage = ({ setCart, isDrawerOpen, setIsDrawerOpen, handleUser }) => {
+const ProductPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser }) => {
     const { productId } = useParams();
     const [product, setProduct] = useState(null);
     const [showRatingsCount, setShowRatingsCount] = useState(false);
@@ -21,7 +22,6 @@ const ProductPage = ({ setCart, isDrawerOpen, setIsDrawerOpen, handleUser }) => 
         async function getProductById() {
             const product = await getProduct(productId);
             setProduct(product);
-            console.log(product)
         }
         getProductById();
     }, []);
@@ -41,7 +41,16 @@ const ProductPage = ({ setCart, isDrawerOpen, setIsDrawerOpen, handleUser }) => 
         image: product.image,
         quantity: 1,
       };
-      setCart((prevCart) => [...prevCart, cartItem]);
+
+      const existingItemIndex = cart.findIndex((item) => item.id === cartItem.id);
+      if (existingItemIndex !== -1) {
+        const updatedCart = [...cart];
+        updatedCart[existingItemIndex].quantity += 1;
+        setCart(updatedCart);
+      } else {
+        setCart((prevCart) => [...prevCart, cartItem]);
+      }
+    
       toast({
         title: "Product added to cart",
         status: "success",
@@ -49,6 +58,10 @@ const ProductPage = ({ setCart, isDrawerOpen, setIsDrawerOpen, handleUser }) => 
         isClosable: true,
       });
     };
+    
+    
+    
+    
 
     return (
         <>
