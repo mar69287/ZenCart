@@ -1,13 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const itemSchema = require('./productSchema');
 
 const lineItemSchema = new Schema({
+    productId: { type: Number, required: true },
+    title: { type: String, required: true },
+    price: { type: Number, required: true },
+    image: { type: String, required: true },
     qty: { type: Number, default: 1 },
-    item: itemSchema
   }, {
     timestamps: true,
-  });
+});
 
 const orderSchema = new Schema({
     user: {
@@ -17,7 +19,7 @@ const orderSchema = new Schema({
     },
     total: {
         type: Number,
-        required: true
+        default: 0,
     },
     lineItems: [lineItemSchema],
     

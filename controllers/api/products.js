@@ -52,7 +52,6 @@ async function show(req, res) {
     return res.status(400).send('Invalid product ID');
   }
   const product = await Product.findOne({id: productId});
-  console.log(product)
   res.json(product);
 }
 
