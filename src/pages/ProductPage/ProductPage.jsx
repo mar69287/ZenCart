@@ -81,7 +81,7 @@ const ProductPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser 
                         <Image src={product.image} boxSize={imageSize} align='' />
                       </Center>
                       <Box w={boxWidth}>
-                        <Text>{product.description}</Text>
+                        <Text fontFamily={'Roboto'}>{product.description}</Text>
                         <Box mt="4">
                           <HStack spacing={4} justifyContent={'center'}>
                             <Box>

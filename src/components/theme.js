@@ -2,10 +2,16 @@
 
 // 1. import `extendTheme` function
 import { extendTheme } from '@chakra-ui/react'
+import '@fontsource/lato'
+import '@fontsource/montserrat'
 
 // 2. Add your color mode config
 const config = {
-  initialColorMode: 'dark'
+  initialColorMode: 'dark',
+  fonts: {
+    heading: `'Montserrat', sans-serif`,
+    body: `'Lato', sans-serif`,
+  },
 }
 
 // 3. extend the theme

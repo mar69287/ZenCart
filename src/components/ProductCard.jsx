@@ -5,7 +5,7 @@ const ProductCard = ({product}) => {
   return (
     <Card paddingTop={3} minH={'21rem'}>
         <Flex justify={'center'}>
-        <Image src={product.image}  boxSize="200px" />
+          <Image src={product.image}  boxSize="200px" />
         </Flex>
         <CardBody>
         <Heading 
@@ -19,7 +19,7 @@ const ProductCard = ({product}) => {
           size={20}
           edit={false}
         />
-            <Text fontSize={'md'} textAlign={'right'} paddingTop={2}>${product.price}</Text>
+            <Text fontSize={'md'} textAlign={'right'} fontFamily={'Roboto'} paddingTop={2}>${product.price}</Text>
         </CardBody>
     </Card>
   )

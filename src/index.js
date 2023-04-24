@@ -6,6 +6,8 @@ import theme from './components/theme'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { ChakraProvider } from '@chakra-ui/react'
 import { ColorModeScript } from '@chakra-ui/react'
+import "fontsource-montserrat/latin.css";
+import "fontsource-roboto/latin.css";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

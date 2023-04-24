@@ -7,7 +7,7 @@ const Logo = () => {
   return (
     <Link to={'/products'}>
         <Box _hover={{ cursor: 'pointer', color: 'gray.500', transition: 'color 0.2s ease-in-out' }}>
-            <Text fontSize={'2xl'} fontFamily={'monospace'}>ZenCart</Text>
+            <Text fontSize={'2xl'} fontFamily={'Montserrat, sans-serif'}>ZenCart</Text>
         </Box>
     </Link>
   )
