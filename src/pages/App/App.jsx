@@ -15,6 +15,7 @@ export default function App() {
   const [ user, setUser ] = useState(getUser())
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [cart, setCart] = useState([]);
+  const [countCart, setCountCart] = useState(0)
 
   function handleLogOut() {
     userService.logOut()
@@ -28,10 +29,10 @@ export default function App() {
         user ?
         <>
           <Routes>
-            <Route path='/products' element={<HomePage cart={cart} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut}/>}/>  
-            <Route path="/products/:productId" element={<ProductPage cart={cart} setCart={setCart} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut}/>} /> 
-            <Route path='/cart' element={<CartPage cart={cart} setCart={setCart} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut}/>}/>
-            <Route path='/orders' element={<OrderHistoryPage  isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut}/>}/>
+            <Route path='/products' element={<HomePage cart={cart} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut} countCart={countCart}/>}/>  
+            <Route path="/products/:productId" element={<ProductPage cart={cart} setCart={setCart} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut} setCountCart={setCountCart} countCart={countCart}/>} /> 
+            <Route path='/cart' element={<CartPage cart={cart} setCart={setCart} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut} setCountCart={setCountCart} countCart={countCart}/>}/>
+            <Route path='/orders' element={<OrderHistoryPage  isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleLogOut} countCart={countCart}/>}/>
             <Route path="/*" element={<Navigate to="/products" />} />
           </Routes>
         </>

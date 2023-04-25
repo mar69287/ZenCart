@@ -5,9 +5,8 @@ import { Grid, GridItem, Text, Image, HStack, Heading, Box, Button, Stack, Cente
 import ReactStars from "react-rating-stars-component";
 import { useMediaQuery } from '@chakra-ui/react';
 import MiniNav from "../../components/MiniNav";
-import CartPage from "../CartPage";
 
-const ProductPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser }) => {
+const ProductPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser, setCountCart, countCart }) => {
     const { productId } = useParams();
     const [product, setProduct] = useState(null);
     const [showRatingsCount, setShowRatingsCount] = useState(false);
@@ -16,6 +15,11 @@ const ProductPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser 
     const imageSize = useBreakpointValue({ base: "250px", sm: "350px" });
     const [isSmallerScreen] = useMediaQuery("(max-width: 600px)");
     const toast = useToast();
+
+    useEffect(() => {
+      setCountCart(cart.length);
+  
+    }, [cart]);
 
 
     useEffect(() => {
@@ -72,7 +76,7 @@ const ProductPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser 
               height="100vh"
               >
                 <GridItem colSpan={2}>
-                  <MiniNav isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleUser} />
+                  <MiniNav isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleUser} countCart={countCart} />
                 </GridItem>
                 <GridItem colSpan={2} justifySelf="center" alignSelf="center">
                   <Heading paddingBottom={6}>{product.title}</Heading>

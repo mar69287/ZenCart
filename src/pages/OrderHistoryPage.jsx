@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { VStack, HStack, Text, Button, Spacer, Spinner } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-const OrderHistoryPage = ({ isDrawerOpen, setIsDrawerOpen, handleUser }) => {
+const OrderHistoryPage = ({ isDrawerOpen, setIsDrawerOpen, handleUser, countCart }) => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -24,6 +24,7 @@ const OrderHistoryPage = ({ isDrawerOpen, setIsDrawerOpen, handleUser }) => {
                 isDrawerOpen={isDrawerOpen}
                 setIsDrawerOpen={setIsDrawerOpen}
                 handleUser={handleUser}
+                countCart={countCart}
             />
             <Spinner size="xl" thickness="4px" speed="0.65s" emptyColor="gray.200" color="blue.500" />
         </>
@@ -37,6 +38,7 @@ const OrderHistoryPage = ({ isDrawerOpen, setIsDrawerOpen, handleUser }) => {
           isDrawerOpen={isDrawerOpen}
           setIsDrawerOpen={setIsDrawerOpen}
           handleUser={handleUser}
+          countCart={countCart}
         />
         <VStack my="20">
           <Text fontSize="3xl" fontWeight="bold" mb="10">
@@ -58,6 +60,7 @@ const OrderHistoryPage = ({ isDrawerOpen, setIsDrawerOpen, handleUser }) => {
         isDrawerOpen={isDrawerOpen}
         setIsDrawerOpen={setIsDrawerOpen}
         handleUser={handleUser}
+        countCart={countCart}
       />
       <VStack my="10">
         <Text fontSize="3xl" fontWeight="bold" mb="10">

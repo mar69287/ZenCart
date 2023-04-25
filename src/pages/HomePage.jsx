@@ -1,11 +1,11 @@
-import { Grid, GridItem, Box } from "@chakra-ui/react";
+import { Grid, GridItem, Box, } from "@chakra-ui/react";
 import NavBar from "../components/NavBar/NavBar";
 import { useEffect, useState } from "react";
 import CategoryList from "../components/CategoryList";
 import ProductGrid from "../components/ProductGrid";
 import { getProducts, getCategory, searchProducts } from "../utilities/products-api";
 
-const HomePage = ({ isDrawerOpen, setIsDrawerOpen, handleUser}) => {
+const HomePage = ({ isDrawerOpen, setIsDrawerOpen, handleUser, countCart}) => {
     const [products, setProducts] = useState([])
     const [isLoading, setLoading] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState("");
@@ -61,14 +61,14 @@ const HomePage = ({ isDrawerOpen, setIsDrawerOpen, handleUser}) => {
           }}
         >
           <GridItem area="nav">
-            <Box onClick={handleLogoClick}>
-              <NavBar isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleUser} setSearchText={setSearchText}/>
-            </Box>
+              <Box onClick={handleLogoClick}>
+                <NavBar isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleUser} setSearchText={setSearchText} countCart={countCart}/>
+              </Box>
           </GridItem>
             <GridItem area="aside">
                 <CategoryList selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
             </GridItem>
-          <GridItem area="main">
+          <GridItem area="main">     
             <ProductGrid products={products}/>
           </GridItem>
         </Grid>

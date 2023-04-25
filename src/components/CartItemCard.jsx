@@ -16,9 +16,7 @@ const CartItem = ({ item, cart, setCart }) => {
           <Link to={`/products/${item.id}`}>
             <Text
                 fontWeight="bold"
-                isTruncated
-                overflow="hidden"
-                textOverflow="ellipsis"
+                fontSize={['14px', '16px', '18px']}                
             >{item.title}</Text>
           </Link>
           <VStack padding={'1'}>

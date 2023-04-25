@@ -3,8 +3,9 @@ import MiniNav from "../components/MiniNav";
 import { HStack, VStack, Button, Text, Spacer, useToast } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { createOrder } from "../utilities/orders-api";
+import { useEffect } from "react";
 
-const CartPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser }) => {
+const CartPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser, setCountCart, countCart }) => {
     const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
      const toast = useToast();
 
@@ -29,9 +30,13 @@ const CartPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser }) 
     }
   };
 
+  useEffect(() => {
+    setCountCart(cart.length);
+  }, [cart]);
+
     return (
         <>
-          <MiniNav isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleUser} />
+          <MiniNav isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleUser} countCart={countCart} />
           {cart.length > 0 ? (
             <>
               {cart.map((item) => {
@@ -51,14 +56,14 @@ const CartPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser }) 
                       Continue Shopping
                     </Button>
                   </Link>
-                  <Button colorScheme="blue" size="md" onClick={handlePurchase}>
+                  <Button  colorScheme="blue" size="md" onClick={handlePurchase}>
                     Purchase
                   </Button>
                 </HStack>
               </VStack>
             </>
           ) : (
-            <VStack marginY={10}>
+            <VStack marginY={10} >
               <Text fontSize="lg" fontWeight="bold" mb={2}>
                 Cart is empty
               </Text>

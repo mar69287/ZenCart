@@ -11,13 +11,13 @@ const ProductGrid = ({products}) => {
             padding="10px"
             spacing={6}
         >
-            {products.map(product => (
-                <Link key={product.id} to={`/products/${product.id}`}>
-                    <ProductContainer >
-                        <ProductCard product={product}/>
-                    </ProductContainer>
-                </Link>
-            ))}
+                {products.map(product => (
+                    <Link key={product.id} to={`/products/${product.id}`}>
+                        <ProductContainer >
+                            <ProductCard product={product}/>
+                        </ProductContainer>
+                    </Link>
+                ))}
         </SimpleGrid>  
     )
 }
