@@ -20,7 +20,7 @@ const ProductPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser,
       let totalQuantity = 0;
     
       for (let item of cart) {
-        totalQuantity += item.quantity;
+        totalQuantity += parseInt(item.quantity);
       }
     
       setCountCart(totalQuantity);
