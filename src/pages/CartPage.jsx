@@ -31,7 +31,13 @@ const CartPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser, se
   };
 
   useEffect(() => {
-    setCountCart(cart.length);
+    let totalQuantity = 0;
+  
+    for (let item of cart) {
+      totalQuantity += item.quantity;
+    }
+  
+    setCountCart(totalQuantity);
   }, [cart]);
 
     return (

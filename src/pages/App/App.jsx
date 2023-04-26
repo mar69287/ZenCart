@@ -9,7 +9,6 @@ import ProductPage from '../ProductPage/ProductPage';
 import HomePage from '../HomePage';
 import CartPage from '../CartPage';
 import OrderHistoryPage from '../OrderHistoryPage';
-import WelcomePage from '../WelcomePage';
 import '@fontsource/lato/400.css'
 import '@fontsource/montserrat/700.css'
 

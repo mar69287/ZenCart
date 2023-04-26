@@ -17,8 +17,13 @@ const ProductPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser,
     const toast = useToast();
 
     useEffect(() => {
-      setCountCart(cart.length);
-  
+      let totalQuantity = 0;
+    
+      for (let item of cart) {
+        totalQuantity += item.quantity;
+      }
+    
+      setCountCart(totalQuantity);
     }, [cart]);
 
 
