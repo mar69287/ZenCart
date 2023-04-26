@@ -18,6 +18,7 @@ export default function AuthPage({ setUser }) {
         <SplashScreen onTimeout={handleSplashScreenTimeout} />
       ) : (
         <Flex alignItems="center" direction="column" justifyContent="center" width="100%">
+          <Text fontSize="6xl" fontWeight="bold" fontFamily={'Montserrat'} mb={4}>ZenCart</Text> 
           {showLogin ? <LoginForm setUser={setUser} /> : <SignUpForm setUser={setUser} />}
           <HStack>
             {showLogin ? (
