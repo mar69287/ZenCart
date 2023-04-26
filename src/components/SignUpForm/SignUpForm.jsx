@@ -39,7 +39,7 @@ export default class SignUpForm extends Component {
       <Stack width={{ base: "100%", md: "50%" }} m="auto">
         <Box p={8}>
           <Stack spacing={4}>
-            <Heading>Sign Up</Heading>
+            <Heading fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}>Sign Up</Heading>
             <FormControl id="name" isRequired>
               <FormLabel>Name</FormLabel>
               <Input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />

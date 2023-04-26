@@ -31,7 +31,7 @@ export default function LoginForm({ setUser }) {
   return (
     <Stack width={{ base: "100%", md: "50%" }} m="auto">
       <VStack spacing={4}>
-        <Heading>Login</Heading>
+        <Heading fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}>Login</Heading>
         <FormControl id="email" isRequired>
           <FormLabel>Email</FormLabel>
           <Input type="email" name="email" value={credentials.email} onChange={handleChange} required />
