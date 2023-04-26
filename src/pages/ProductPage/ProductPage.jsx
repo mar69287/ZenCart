@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import { getProduct } from "../../utilities/products-api";
-import { Grid, GridItem, Text, Image, HStack, Heading, Box, Button, Stack, Center, useBreakpointValue, Show, useToast } from "@chakra-ui/react";
+import { Grid, GridItem, Text, Image, HStack, Heading, Box, Button, Stack, Center, useBreakpointValue, Show, useToast, Spinner } from "@chakra-ui/react";
 import ReactStars from "react-rating-stars-component";
 import { useMediaQuery } from '@chakra-ui/react';
 import MiniNav from "../../components/MiniNav";
@@ -124,7 +124,11 @@ const ProductPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser,
                 </GridItem>
               </Grid> 
           ) : (
-            <p>is Loading</p>
+            <>
+              <MiniNav isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleUser} countCart={countCart} />
+              <Spinner />
+            </>
+
           )}
         </>
       );

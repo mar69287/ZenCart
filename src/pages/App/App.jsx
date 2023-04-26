@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react'
+import { Alert, AlertIcon } from "@chakra-ui/react";
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { getUser } from '../../utilities/users-service'
 import AuthPage from '../AuthPage/AuthPage';
@@ -8,6 +9,7 @@ import ProductPage from '../ProductPage/ProductPage';
 import HomePage from '../HomePage';
 import CartPage from '../CartPage';
 import OrderHistoryPage from '../OrderHistoryPage';
+import WelcomePage from '../WelcomePage';
 import '@fontsource/lato/400.css'
 import '@fontsource/montserrat/700.css'
 
