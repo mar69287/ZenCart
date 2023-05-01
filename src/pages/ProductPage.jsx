@@ -52,8 +52,8 @@ const HomePage = ({ isDrawerOpen, setIsDrawerOpen, handleUser, countCart}) => {
     return ( 
         <Grid
           templateAreas={{
-            base: `"nav" "aside" "main"`,
-            lg: `"nav nav" "aside aside" "main main"`,
+            base: `"nav" "category" "main"`,
+            lg: `"nav nav" "category category" "main main"`,
           }}
           templateColumns={{
             base: "1fr",
@@ -65,9 +65,9 @@ const HomePage = ({ isDrawerOpen, setIsDrawerOpen, handleUser, countCart}) => {
                 <NavBar isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleUser} setSearchText={setSearchText} countCart={countCart}/>
               </Box>
           </GridItem>
-            <GridItem area="aside">
+          <GridItem area="category">
                 <CategoryList selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
-            </GridItem>
+          </GridItem>
           <GridItem area="main">     
             <ProductGrid products={products}/>
           </GridItem>

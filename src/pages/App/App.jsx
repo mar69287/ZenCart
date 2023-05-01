@@ -6,7 +6,7 @@ import { getUser } from '../../utilities/users-service'
 import AuthPage from '../AuthPage/AuthPage';
 import * as userService from '../../utilities/users-service' 
 import ProductPage from '../ProductPage/ProductPage';
-import HomePage from '../HomePage';
+import HomePage from '../ProductPage';
 import CartPage from '../CartPage';
 import OrderHistoryPage from '../OrderHistoryPage';
 import '@fontsource/lato/400.css'
