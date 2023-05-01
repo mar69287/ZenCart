@@ -1,6 +1,5 @@
 import './App.css';
 import { useState } from 'react'
-import { Alert, AlertIcon } from "@chakra-ui/react";
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { getUser } from '../../utilities/users-service'
 import AuthPage from '../AuthPage/AuthPage';
