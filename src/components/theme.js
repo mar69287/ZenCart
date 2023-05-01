@@ -7,7 +7,7 @@ import '@fontsource/montserrat'
 
 // 2. Add your color mode config
 const config = {
-  initialColorMode: 'dark',
+  initialColorMode: 'light',
   fonts: {
     heading: `'Montserrat', sans-serif`,
     body: `'Lato', sans-serif`,
