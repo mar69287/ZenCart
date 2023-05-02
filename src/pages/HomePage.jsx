@@ -29,7 +29,7 @@ const HomePage = () => {
             <WelcomeCard />     
           </GridItem>
           <GridItem area="category">    
-            <CategoryCard /> 
+            {/* <CategoryCard />  */}
           </GridItem>
           <GridItem area="footer">    
             <Footer />

@@ -1,5 +1,5 @@
+import { Box, Center, Image } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
-import { Center } from "@chakra-ui/react";
 import img1 from "../images/clothes-male-model.jpg";
 import img2 from "../images/women-model.jpg";
 import img3 from "../images/jewelry-model.jpg";
@@ -18,8 +18,18 @@ const Carousel = () => {
   }, [currentImage]);
 
   return (
-    <Center height="20rem" marginY={'1rem'}>
-      <img src={images[currentImage]} alt={`Carousel slide ${currentImage}`} style={{ width: "35%", height: "100%" }} />
+    <Center marginY="1rem">
+      <Box w={["90%", "80%", "70%"]}>
+        <Image
+          src={images[currentImage]}
+          alt={`Carousel slide ${currentImage}`}
+          objectFit="cover"
+          w="100%"
+          h={["10rem", "12rem", "16rem", "20rem"]}
+          borderRadius="md"
+          boxShadow="md"
+        />
+      </Box>
     </Center>
   );
 };
