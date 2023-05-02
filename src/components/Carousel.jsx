@@ -18,8 +18,8 @@ const Carousel = () => {
   }, [currentImage]);
 
   return (
-    <Center height="25rem" marginY={'1rem'}>
-      <img src={images[currentImage]} alt={`Carousel slide ${currentImage}`} style={{ width: "40%", height: "100%" }} />
+    <Center height="20rem" marginY={'1rem'}>
+      <img src={images[currentImage]} alt={`Carousel slide ${currentImage}`} style={{ width: "35%", height: "100%" }} />
     </Center>
   );
 };
