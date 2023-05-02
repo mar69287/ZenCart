@@ -1,5 +1,6 @@
 import { Grid, GridItem, Box, } from "@chakra-ui/react";
 import HomeNav from "../components/HomeNav";
+import Carousel from "../components/Carousel";
 
 const HomePage = () => {
   return (
@@ -17,6 +18,7 @@ const HomePage = () => {
             <HomeNav />
           </GridItem>
           <GridItem area="carousel">
+            <Carousel />
           </GridItem>
           <GridItem area="category">     
           </GridItem>
