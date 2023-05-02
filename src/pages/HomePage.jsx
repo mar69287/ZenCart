@@ -1,11 +1,12 @@
 import { Grid, GridItem, Box, } from "@chakra-ui/react";
+import HomeNav from "../components/HomeNav";
 
 const HomePage = () => {
   return (
     <Grid
           templateAreas={{
-            base: `"nav" "carousel" "category" `,
-            lg: `"nav nav" "carousel carousel" "category category" `,
+            base: `"nav" "carousel" "category" "footer"`,
+            lg: `"nav nav" "carousel carousel" "category category" "footer footer"`,
           }}
           templateColumns={{
             base: "1fr",
@@ -13,11 +14,13 @@ const HomePage = () => {
           }}
         >
           <GridItem area="nav">
-            
+            <HomeNav />
           </GridItem>
           <GridItem area="carousel">
           </GridItem>
           <GridItem area="category">     
+          </GridItem>
+          <GridItem area="footer">     
           </GridItem>
         </Grid>
   )

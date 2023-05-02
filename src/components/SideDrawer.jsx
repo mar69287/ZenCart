@@ -14,7 +14,7 @@ const SideDrawer = ({ isOpen, onClose, handleUser,}) => {
             <ColorModeSwitch />
             <Link to='/orders'>Order History</Link>
             <Box _hover={{ cursor: 'pointer', color: 'gray.500', transition: 'color 0.2s ease-in-out' }}>
-              <Link to="" onClick={handleUser}>Log Out</Link>
+              <Link to="/" onClick={handleUser}>Log Out</Link>
             </Box>
           </Stack>
         </DrawerBody>
