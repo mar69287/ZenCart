@@ -10,7 +10,7 @@ const CategoryCard = () => {
   return (
     <Center>
       <VStack align="flex-start">
-        <Text fontWeight="bold" fontSize="lg" mb="1rem">
+        <Text fontWeight="bold" fontSize="lg" marginTop="1rem">
           Shop by Category
         </Text>
         <HStack spacing={10}>
