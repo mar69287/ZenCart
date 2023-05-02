@@ -2,6 +2,7 @@ import { Grid, GridItem, Box, } from "@chakra-ui/react";
 import HomeNav from "../components/HomeNav";
 import Carousel from "../components/Carousel";
 import WelcomeCard from "../components/WelcomeCard";
+import CategoryCard from "../components/CategoryCard";
 
 const HomePage = () => {
   return (
@@ -26,7 +27,8 @@ const HomePage = () => {
           <GridItem area="welcome">
             <WelcomeCard />     
           </GridItem>
-          <GridItem area="category">     
+          <GridItem area="category">    
+            <CategoryCard /> 
           </GridItem>
         </Grid>
   )
