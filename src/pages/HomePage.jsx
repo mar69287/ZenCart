@@ -23,16 +23,16 @@ const HomePage = () => {
             <HomeNav />
           </GridItem>
           <GridItem area="carousel">
-            <Carousel />
+            {/* <Carousel /> */}
           </GridItem>
           <GridItem area="welcome">
-            <WelcomeCard />     
+            {/* <WelcomeCard />      */}
           </GridItem>
           <GridItem area="category">    
             {/* <CategoryCard />  */}
           </GridItem>
           <GridItem area="footer">    
-            <Footer />
+            {/* <Footer /> */}
           </GridItem>
         </Grid>
   )
