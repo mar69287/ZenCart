@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Flex, HStack, Text } from '@chakra-ui/react';
+import { Box, Flex, HStack, Text, VStack } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import SplashScreen from '../../components/SpalshScreen';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
@@ -25,10 +25,15 @@ export default function AuthPage({ setUser }) {
           {showLogin ? <LoginForm setUser={setUser} /> : <SignUpForm setUser={setUser} />}
           <HStack>
             {showLogin ? (
-              <HStack paddingTop={4}>
-                <Text>New to Fresh Finds?{' '}</Text>
-                <Text as={'b'} _hover={{ color: 'blue.500' }} cursor={'pointer'} onClick={() => setShowLogin(false)}>Create your account</Text>
-              </HStack>
+              <>
+                <VStack>
+                  <HStack paddingTop={4}>
+                    <Text>New to Fresh Finds?{' '}</Text>
+                    <Text as={'b'} _hover={{ color: 'blue.500' }} cursor={'pointer'} onClick={() => setShowLogin(false)}>Create your account</Text>
+                  </HStack>
+                  <Text>(Demo: email: user@user.com password: user)</Text>
+                </VStack>
+              </>
             ) : (
               <HStack>
                 <Text>Already have an account?{' '}</Text>

@@ -36,7 +36,7 @@ const CategoryCard = () => {
                 </Link>
               </Box>
               <Box>
-                <Text fontWeight="bold" fontSize="lg" color="gray.800" marginBottom='1rem'>
+                <Text fontWeight="bold" fontSize="lg"  marginBottom='1rem'>
                   {index === 0 ? "Men's" :
                     index === 1 ? "Women's" :
                     index === 2 ? "Jewelry" :

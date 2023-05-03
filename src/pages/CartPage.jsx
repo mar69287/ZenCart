@@ -75,6 +75,9 @@ const CartPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser, se
                     </Button>
                   </StripeCheckout>
                 </HStack>
+                <Text>
+                  (Demo Card Number: 4242 4242 4242 4242 exp: 12/34 CVC: 123)
+                </Text>
               </VStack>
             </>
           ) : (
