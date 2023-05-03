@@ -1,4 +1,4 @@
-import { Grid, GridItem, Box } from "@chakra-ui/react";
+import { Text, Box } from "@chakra-ui/react";
 import HomeNav from "../components/HomeNav";
 import Carousel from "../components/Carousel";
 import WelcomeCard from "../components/WelcomeCard";
@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 const HomePage = () => {
   return (
     <Box display="flex" flexDirection="column" justifyContent='center' minHeight="100vh">
-      <Box flex="1" bgColor="#F5F5F5">
+      <Box flex="1">
         <HomeNav />
         <Carousel />
             <WelcomeCard />

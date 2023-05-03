@@ -1,45 +1,49 @@
+import { Box, Center, Flex, HStack, Image, Text, VStack, useBreakpointValue } from "@chakra-ui/react";
 import MenShirt from '../images/menshirt.png'
 import WomenShirt from '../images/women-jacket.png'
 import JewelryImage from '../images/jewelry.png'
 import ElectronicImage from '../images/tv-model.jpg'
-import { Box, Center, HStack, Image, Text, VStack } from "@chakra-ui/react";
 
 const images = [MenShirt, WomenShirt, JewelryImage, ElectronicImage];
 
 const CategoryCard = () => {
+  const boxSize = useBreakpointValue({ base: "5rem", md: "6rem" });
+  
   return (
-    <Center>
+    <Flex align="center" justify="center" mx='1rem' mt='1rem'>
       <VStack align="flex-start">
-        <Text fontWeight="bold" fontSize="lg" marginTop="1rem">
+        <Text fontWeight="bold" fontSize="lg" >
           Shop by Category
         </Text>
-        <HStack spacing={10}>
+        <HStack flexWrap="wrap" justify="space-evenly" >
           {images.map((image, index) => (
             <VStack key={index}>
               <Box
-                w="8rem"
-                h="8rem"
+                w={boxSize}
+                h={boxSize}
                 borderRadius="50%"
                 overflow="hidden"
                 boxShadow="md"
                 bgColor="white"
-                mb=".5rem"
+                mx='1rem'
                 border="4px" borderColor="blue.900"
               >
                 <Image src={image} objectFit='cover' h="100%" />
               </Box>
-              <Text fontWeight="bold" fontSize="lg" color="gray.800">
-                {index === 0 ? "Men's Clothing" :
-                 index === 1 ? "Women's Clothing" :
-                 index === 2 ? "Jewelry" :
-                 "Electronics"
-                }
-              </Text>
+              <Box>
+                <Text fontWeight="bold" fontSize="lg" color="gray.800" marginBottom='1rem'>
+                  {index === 0 ? "Men's" :
+                    index === 1 ? "Women's" :
+                    index === 2 ? "Jewelry" :
+                    "Electronics"
+                  }
+                </Text>
+              </Box>
             </VStack>
           ))}
         </HStack>
       </VStack>
-    </Center>
+    </Flex>
   )
 }
 
