@@ -18,19 +18,15 @@ const Carousel = () => {
   }, [currentImage]);
 
   return (
-    <Center marginY="1rem" h={["10rem", "12rem", "16rem", "20rem"]}>
-      {/* <Box w={["90%", "80%", "70%"]}> */}
+    <Center marginY="1rem" h={["12rem", "14rem", "18rem", "20rem"]}>
         <Image
           src={images[currentImage]}
           alt={`Carousel slide ${currentImage}`}
-          // objectFit="cover"
-          w={["90%", "80%", "70%"]}
+          w={["90%", "75%", "60%"]}
           height='100%'
-          // h={["10rem", "12rem", "16rem", "20rem"]}
           borderRadius="md"
           boxShadow="md"
         />
-      {/* </Box> */}
     </Center>
   );
 };
