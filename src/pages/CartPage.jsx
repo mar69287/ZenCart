@@ -4,14 +4,15 @@ import { HStack, VStack, Button, Text, Spacer, useToast } from "@chakra-ui/react
 import { Link } from "react-router-dom";
 import { createOrder } from "../utilities/orders-api";
 import { useEffect } from "react";
+import StripeCheckout from "react-stripe-checkout";
 
 const CartPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser, setCountCart, countCart }) => {
     const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-     const toast = useToast();
+    const toast = useToast();
 
-    const handlePurchase = async () => {
+    const handleToken = async (token) => {
     try {
-      await createOrder(cart, total);
+      await createOrder(cart, total, token);
       setCart([]);
       toast({
         title: "Purchase successful",
@@ -63,9 +64,16 @@ const CartPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser, se
                       Continue Shopping
                     </Button>
                   </Link>
-                  <Button  colorScheme="blue" size="md" onClick={handlePurchase}>
-                    Purchase
-                  </Button>
+                  <StripeCheckout
+                    stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY || ""}
+                    token={handleToken}
+                    currency="USD"
+                    name="Fresh Finds"
+                  >
+                    <Button  colorScheme="blue" size="md" >
+                      Purchase
+                    </Button>
+                  </StripeCheckout>
                 </HStack>
               </VStack>
             </>
@@ -75,9 +83,9 @@ const CartPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser, se
                 Cart is empty
               </Text>
               <Link to="/products">
-                <Button colorScheme="gray" size="md">
-                  Continue Shopping
-                </Button>
+                  <Button colorScheme="gray" size="md">
+                    Continue Shopping
+                  </Button>
               </Link>
             </VStack>
           )}
