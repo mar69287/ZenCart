@@ -18,7 +18,7 @@ const Carousel = () => {
   }, [currentImage]);
 
   return (
-    <Center marginY="1rem" h={["12rem", "14rem", "18rem", "20rem"]}>
+    <Center marginY="1rem" h={["12rem", "14rem", "20rem", "24rem"]}>
         <Image
           src={images[currentImage]}
           alt={`Carousel slide ${currentImage}`}

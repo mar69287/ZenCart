@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Box, Flex, HStack, Text } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import SplashScreen from '../../components/SpalshScreen';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
@@ -18,7 +19,9 @@ export default function AuthPage({ setUser }) {
         <SplashScreen onTimeout={handleSplashScreenTimeout} />
       ) : (
         <Flex alignItems="center" direction="column" justifyContent="center" width="100%">
-          <Text fontSize={["4xl", "5xl", "6xl", "7xl"]} fontWeight="bold" fontFamily={'Montserrat'} mb={4}>ZenCart</Text> 
+          <Link to="/">
+            <Text _hover={{ color: 'blue.600', textDecoration: 'none', transition: 'color 0.2s ease-in-out', }} fontSize={["4xl", "5xl", "6xl", "7xl"]} fontWeight="bold" fontFamily={'Montserrat'} mb={4}>ZenCart</Text>
+          </Link>
           {showLogin ? <LoginForm setUser={setUser} /> : <SignUpForm setUser={setUser} />}
           <HStack>
             {showLogin ? (

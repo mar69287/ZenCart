@@ -9,8 +9,17 @@ const HomeNav = () => {
   return (
     <HStack bg="blue.900" justifyContent="space-between" padding={padding} height={height} >
         <Text fontWeight="bold" color={'white'} fontSize={{ base: "2xl", md: "3xl" }} fontFamily={'Montserrat, sans-serif'}>ZenCart</Text>
-        <Box _hover={{ cursor: 'pointer', color: 'gray.500', transition: 'color 0.2s ease-in-out' }}>
-              <Link to="/auth" style={{ color: "white", fontFamily: "Lato", fontSize: linkFontSize }} >Account</Link>
+        <Box
+          _hover={{
+            cursor: 'pointer',
+            color: 'gray.500',
+            transition: 'color 0.2s ease-in-out',
+            textDecoration: 'underline',
+          }}
+        >
+          <Link to="/auth" style={{ color: 'white', fontFamily: 'Lato', fontSize: linkFontSize }}>
+            Account
+          </Link>
         </Box>
     </HStack>
   )

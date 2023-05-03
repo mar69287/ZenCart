@@ -1,4 +1,5 @@
 import { Box, Center, Flex, HStack, Image, Text, VStack, useBreakpointValue } from "@chakra-ui/react";
+import { Link } from 'react-router-dom';
 import MenShirt from '../images/menshirt.png'
 import WomenShirt from '../images/women-jacket.png'
 import JewelryImage from '../images/jewelry.png'
@@ -27,8 +28,12 @@ const CategoryCard = () => {
                 bgColor="white"
                 mx='1rem'
                 border="4px" borderColor="blue.900"
+                transition="transform 0.3s ease"
+                _hover={{ transform: 'scale(1.1)' }}
               >
-                <Image src={image} objectFit='cover' h="100%" />
+                <Link to="/auth">
+                  <Image src={image} objectFit='cover' h="100%" />
+                </Link>
               </Box>
               <Box>
                 <Text fontWeight="bold" fontSize="lg" color="gray.800" marginBottom='1rem'>
