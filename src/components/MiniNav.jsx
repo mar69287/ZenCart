@@ -6,7 +6,7 @@ import {  HStack } from "@chakra-ui/react";
 
 const MiniNav = ({isDrawerOpen, setIsDrawerOpen, handleUser, countCart }) => {
   return (
-    <HStack justifyContent={"space-between"} padding={'10px'}>
+    <HStack justifyContent={"space-between"} px={'10px'} paddingTop={3}>
         <Logo />
         <RightSideNav setIsDrawerOpen={setIsDrawerOpen} countCart={countCart} />
         <SideDrawer 

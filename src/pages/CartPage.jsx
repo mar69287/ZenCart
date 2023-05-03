@@ -50,7 +50,7 @@ const CartPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser, se
               {cart.map((item) => {
                 return <CartItemCard key={item.id} item={item} cart={cart} setCart={setCart} />;
               })}
-              <VStack marginY={10}>
+              <VStack marginY={10} mx={4}>
                 <HStack w="100%">
                   <Spacer />
                   <Text fontSize="lg" fontWeight="bold" mb={2}>

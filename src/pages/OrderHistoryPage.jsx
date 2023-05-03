@@ -62,7 +62,7 @@ const OrderHistoryPage = ({ isDrawerOpen, setIsDrawerOpen, handleUser, countCart
         handleUser={handleUser}
         countCart={countCart}
       />
-      <VStack my="10">
+      <VStack my="10" mx={3}>
         <Text fontSize="3xl" fontWeight="bold" mb="10">
           Order History
         </Text>

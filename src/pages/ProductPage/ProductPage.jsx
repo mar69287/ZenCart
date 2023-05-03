@@ -84,15 +84,15 @@ const ProductPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser,
                   <MiniNav isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleUser} countCart={countCart} />
                 </GridItem>
                 <GridItem colSpan={2} justifySelf="center" alignSelf="center">
-                  <Heading paddingBottom={6}>{product.title}</Heading>
+                  <Heading paddingBottom={6} px={2}>{product.title}</Heading>
                   <Stack direction={['column', 'row']} spacing='24px' align="center" justify='center'>
                       <Center w={boxWidth}>
                         <Image src={product.image} boxSize={imageSize} align='' />
                       </Center>
                       <Box w={boxWidth}>
-                        <Text fontFamily={'Roboto'}>{product.description}</Text>
+                        <Text px={5} fontFamily={'Roboto'}>{product.description}</Text>
                         <Box mt="4">
-                          <HStack spacing={4} justifyContent={'center'}>
+                          <HStack spacing={4} justifyContent={'center'} paddingBottom={5}>
                             <Box>
                               <Text fontSize="2xl" fontWeight="semibold">
                                 ${product.price}
