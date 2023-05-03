@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 
 const HomePage = () => {
   return (
-    <Box display="flex" flexDirection="column" justifyContent='center' minHeight="100vh">
+    <Box display="flex" flexDirection="column" justifyContent='center' minHeight="100vh"  >
       <Box flex="1">
         <HomeNav />
         <Carousel />
