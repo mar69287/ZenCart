@@ -11,6 +11,7 @@ const SearchInput = ({setSearchText}) => {
       onSubmit={(event) => {
         event.preventDefault();
         if (ref.current) setSearchText(ref.current.value);
+        
       }}
     >
       <InputGroup>

@@ -33,8 +33,7 @@ async function getSearch(req, res) {
     } else {
       products = await Product.find({
         $or: [
-          { name: { $regex: regex } },
-          { description: { $regex: regex } },
+          { title: { $regex: regex } },
           { category: { $regex: regex } }
         ]
       });
