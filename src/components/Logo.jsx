@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { Text, Box } from "@chakra-ui/react";
+import { getProducts } from "../utilities/products-api";
+
 
 const Logo = () => {
-
 
   return (
     <Link to={'/products'}>

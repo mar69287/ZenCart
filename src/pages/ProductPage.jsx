@@ -43,11 +43,6 @@ const HomePage = ({ isDrawerOpen, setIsDrawerOpen, handleUser, countCart}) => {
         }
         search();
       }, [searchText]);
-  
-      const handleLogoClick = async () => {
-        const products = await getProducts();
-        setProducts(products);
-      };
 
     return ( 
         <Grid
@@ -61,9 +56,7 @@ const HomePage = ({ isDrawerOpen, setIsDrawerOpen, handleUser, countCart}) => {
           }}
         >
           <GridItem area="nav">
-              <Box onClick={handleLogoClick}>
-                <NavBar isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleUser} setSearchText={setSearchText} countCart={countCart}/>
-              </Box>
+                <NavBar setProducts={setProducts} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleUser} setSearchText={setSearchText} countCart={countCart}/>
           </GridItem>
           <GridItem area="category">
                 <CategoryList selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
