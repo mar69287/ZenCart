@@ -1,9 +1,9 @@
 import { Box, Center, Image } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
-import img1 from "../images/clothes-male-model.jpg";
-import img2 from "../images/women-model.jpg";
-import img3 from "../images/jewelry-model.jpg";
-import img4 from "../images/tv-model.jpg";
+import img1 from "../images/model1.jpeg";
+import img2 from "../images/model2.jpeg";
+import img3 from "../images/model3.jpeg";
+import img4 from "../images/model4.jpeg";
 
 const images = [img1, img2, img3, img4];
 
@@ -22,7 +22,7 @@ const Carousel = () => {
         <Image
           src={images[currentImage]}
           alt={`Carousel slide ${currentImage}`}
-          w={["90%", "75%", "60%"]}
+          w={["90%", "90%", "80%", "50%"]}
           height='100%'
           borderRadius="md"
           boxShadow="md"
