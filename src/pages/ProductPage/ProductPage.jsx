@@ -1,10 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import { getProduct } from "../../utilities/products-api";
 import { Grid, GridItem, Text, Image, HStack, Heading, Box, Button, Stack, Center, useBreakpointValue, Show, useToast, Spinner } from "@chakra-ui/react";
 import ReactStars from "react-rating-stars-component";
 import { useMediaQuery } from '@chakra-ui/react';
 import MiniNav from "../../components/MiniNav";
+import { IconButton } from "@chakra-ui/react";
+import { ArrowBackIcon } from "@chakra-ui/icons";
 
 const ProductPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser, setCountCart, countCart }) => {
     const { productId } = useParams();
@@ -15,6 +17,7 @@ const ProductPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser,
     const imageSize = useBreakpointValue({ base: "250px", sm: "350px" });
     const [isSmallerScreen] = useMediaQuery("(max-width: 600px)");
     const toast = useToast();
+    const navigate = useNavigate();
 
     useEffect(() => {
       let totalQuantity = 0;
@@ -82,12 +85,20 @@ const ProductPage = ({ cart, setCart, isDrawerOpen, setIsDrawerOpen, handleUser,
               >
                 <GridItem colSpan={2}>
                   <MiniNav isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} handleUser={handleUser} countCart={countCart} />
+                  <HStack m={2}>
+                    <IconButton
+                      icon={<ArrowBackIcon />}
+                      onClick={() => navigate(-1)}
+                    
+                    />
+                    <Text> Return</Text>
+                  </HStack>
                 </GridItem>
                 <GridItem colSpan={2} justifySelf="center" alignSelf="center">
                   <Heading paddingBottom={6} px={2}>{product.title}</Heading>
                   <Stack direction={['column', 'row']} spacing='24px' align="center" justify='center'>
                       <Center w={boxWidth}>
-                        <Image src={product.image} boxSize={imageSize} align='' />
+                        <Image src={product.image} boxSize={imageSize} borderRadius="md" />
                       </Center>
                       <Box w={boxWidth}>
                         <Text px={5} fontFamily={'Roboto'}>{product.description}</Text>

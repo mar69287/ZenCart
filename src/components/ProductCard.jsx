@@ -6,7 +6,7 @@ const ProductCard = ({product}) => {
     <Card paddingTop={3} minH={'21rem'}>
         
           <Flex justify={'center'}>
-            <Image src={product.image}  boxSize="200px" />
+            <Image src={product.image}  boxSize="200px" borderRadius="md" />
           </Flex>
         
         <CardBody>
