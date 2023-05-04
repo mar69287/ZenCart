@@ -1,4 +1,4 @@
-import { Card, CardBody, Flex, Heading, Image, Show, Text } from "@chakra-ui/react";
+import { Card, CardBody, Flex, Heading, Image, Center, Text } from "@chakra-ui/react";
 import ReactStars from "react-rating-stars-component";
 
 const ProductCard = ({product}) => {
@@ -13,18 +13,21 @@ const ProductCard = ({product}) => {
       
           <Heading
           paddingBottom={2}
-          fontSize={['12px', '15px', '18px']}
+          fontSize={['1rem', '1.1rem', '1.2rem']}
           >{product.title}</Heading>
         
         
-          <ReactStars
-            count={5}
-            value={product.rating.rate}
-            size={20}
-            edit={false}
-          />
+          <Center>
+            <ReactStars
+              count={5}
+              value={product.rating.rate}
+              size={20}
+              edit={false}
+            />
+            <Text ml={2} textColor='blue.400' fontSize={['1rem', '1.1rem']}>{product.rating.count}</Text>
+          </Center>
         
-            <Text fontSize={'md'} textAlign={'right'} fontFamily={'Roboto'} paddingTop={2}>${product.price}</Text>
+            <Text fontSize={['1rem', '1.1rem', '1.2rem']} textAlign={'center'} fontFamily={'Roboto'} paddingTop={2}>${product.price}</Text>
         </CardBody>
     </Card>
   )
