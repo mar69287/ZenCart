@@ -12,11 +12,11 @@ const CategoryCard = () => {
   
   return (
     <Flex align="center" justify="center" mx='1rem' mt='1rem'>
-      <VStack align="flex-start">
-        <Text fontWeight="bold" fontSize="lg" >
+      <VStack align="flex-start" w='100%' alignItems='center'>
+        <Text fontWeight="bold" fontSize={{ base: '1.3rem', md: '1.8rem', lg: '2.3rem' }} >
           Shop by Category
         </Text>
-        <HStack flexWrap="wrap" justify="space-evenly" >
+        <HStack flexWrap="wrap" justify="space-evenly" width={{ base: "100%", lg: "80%", }} >
           {images.map((image, index) => (
             <VStack key={index}>
               <Box
