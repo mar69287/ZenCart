@@ -7,7 +7,7 @@ const HomeNav = () => {
     const linkFontSize = useBreakpointValue({ base: "1.1rem", md: "1.4rem" });
 
   return (
-    <HStack bg="blue.900" justifyContent="space-between" padding={padding} height={height} >
+    <HStack bg="teal.600" justifyContent="space-between" padding={padding} height={height} >
         <Text fontWeight="bold" color={'white'} fontSize={{ base: "2xl", md: "3xl" }} fontFamily={'Montserrat, sans-serif'}>ZenCart</Text>
         <Box
           _hover={{

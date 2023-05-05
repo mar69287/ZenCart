@@ -4,6 +4,7 @@ import Carousel from "../components/Carousel";
 import WelcomeCard from "../components/WelcomeCard";
 import CategoryCard from "../components/CategoryCard";
 import Footer from "../components/Footer";
+import GiftCard from "../components/GiftCard";
 
 const HomePage = () => {
   return (
@@ -11,8 +12,9 @@ const HomePage = () => {
       <Box flex="1">
         <HomeNav />
         <Carousel />
-            <WelcomeCard />
-            <CategoryCard />     
+        {/* <WelcomeCard /> */}
+        <GiftCard />
+        <CategoryCard />     
       </Box>
       <Footer />
     </Box>

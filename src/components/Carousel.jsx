@@ -3,9 +3,8 @@ import React, { useState, useEffect } from "react";
 import img1 from "../images/model1.jpeg";
 import img2 from "../images/model2.jpeg";
 import img3 from "../images/model3.jpeg";
-import img4 from "../images/model4.jpeg";
 
-const images = [img1, img2, img3, img4];
+const images = [img1, img2, img3];
 
 const Carousel = () => {
   const [currentImage, setCurrentImage] = useState(0);
